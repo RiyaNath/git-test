@@ -1,14 +1,67 @@
 <html>
-    <head>
-        <title>
-            Index
-        </title>
-    </head>
+<meta charset="utf-8">
+<head>
+    <title>
+        Form
+    </title>
+    <style>
+        fieldset{
+            background-color: rgb(207, 195, 195);
+            margin:20px;
+        }
+        label{
+            text-decoration-style:solid;
+            text-decoration-color: black;
+        }
+
+        input:focus{
+		background-color: #B3B3B3;
+}
+label{
+		display: block;
+  font-size:150%;
+}
+    </style>
+</head>
 <body>
-    <p>Hello There</p>
-    <p>This is the index page</p>
-    <p>This is added now</p>
+<form>
+    <fieldset>
+        <legend>
+            Personal Information
+        </legend>
+                <p> 
+             Please fill up the form carefully:
+                </p>
+                        <br> <br>
+
+        <label >Name: <input type="text" name="name"  size="30" required></label><br><br>
+        <label> Password: <input type="password" name="password" size="10" required></label><br><br>
+      
+
+        <label>Zip Code: <input type="text" name="zip_code" pattern="[0-9]{5}" ></label><br> <br>
+
+        <input type="submit" name="submit" value="Submit"><br><br>
+
+       
+            <label>Preferred email address:
+                    <input type="email" id="email_addr" name="email1" value = "me@me.com" required></label>
+          
+                <label>Repeat email address:
+                    <input type="email" id="email_repeat" name="email2" required onchange="return check()"></label>
+          
+            <input type = 'submit' value = "Confirm Emails!" onclick = "return check();">
+
+    </fieldset>
+</form>
+<script>
+    function check() {
+        var email1 = document.getElementById('email_addr');
+        var email2 = document.getElementById('email_repeat');
+                if ( email1.value != email2.value) {
+                     alert("The two emails must match!!");
+           return false;
+            }
+  }
+</script>
 </body>
-
-
 </html>
